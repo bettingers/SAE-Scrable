@@ -2,17 +2,13 @@ import java.io.PrintStream;
 
 public class TESTMEE {
     public static void main(String[] args) {
-        MEE mee1 = new MEE(3);
-       
-        
-       //Ut.afficherSL(mee1.estVide());
+        // MEE mee1 = new MEE(3);
 
-       mee1.ajoute(1);
-       System.out.println(mee1.toString());
+        // Ut.afficherSL(mee1.estVide());
 
+        // mee1.estVide();
+        // System.out.println(mee1.toString());
 
+    }
 
-        
-        }
-    
 }

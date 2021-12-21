@@ -63,6 +63,15 @@ public class MEE {
 
     }
 
+    /**
+     * affiche les tableau sous la forme :
+     * {4, 7, 9, ....}
+     */
+
+    // toString n'est pas marqué dans les consignes doncil faudra peut être
+    // l'enlever à la fin
+    // Il y a un toString dans la classe Case mais il n'y a pas marqué à quoi il
+    // sert
     public String toString() {
         String res = "{";
         for (int j = 0; j < nbTotEx; j++) {
@@ -81,7 +90,7 @@ public class MEE {
     public boolean retire(int i) {
         boolean res = false;
         if (this.tabFreq[i] >= 1) {
-            this.tabFreq[i - 1] = -1;
+            this.tabFreq[i] -= 1; // this.tabFreq[i - 1]
             res = true;
         }
         return res;
@@ -93,7 +102,8 @@ public class MEE {
      * et le retourne
      */
 
-    public int retireAleat() {
+    public int retireAleat() { // regarder si il faut rajouter des lignes pour savoir si il est possible de
+                               // retirer la valeur, cad si pour la valeur de i choisi aléatoirement tab[i] > 0
         int i = Ut.randomMinMax(0, this.tabFreq.length - 1);
         retire(i);
         return this.tabFreq[i];
@@ -108,10 +118,13 @@ public class MEE {
     public boolean transfere(MEE e, int i) {
         boolean res = false;
         if (this.tabFreq[i] >= 1) {
-            this.tabFreq[i] = e.tabFreq[i];
+            this.tabFreq[i] = e.tabFreq[i]; // pourquoi ?
+            // this.ajoute(i);
+            // e.retire(i);
             res = true;
         }
         return res;
+
     }
 
     /**
@@ -123,16 +136,15 @@ public class MEE {
 
     public int transfereAleat(MEE e, int k) {
         int nb_exmplaire = 0;
-        k = Ut.randomMinMax(0, this.tabFreq.length - 1);
+        int random = Ut.randomMinMax(0, this.tabFreq.length - 1);
         for (int i = 0; i < k; i++) {
-            if (retire(i) == true) {
-                transfere(e, i);
+            if (retire(random) == true) { // peut être if (transfert(e, rendom) == true)
+                transfere(e, random);
                 nb_exmplaire++;
-
             }
         }
         return nb_exmplaire;
-
+        // j'ai modifié des choses
     }
 
     /**
@@ -148,6 +160,7 @@ public class MEE {
             sommes = v[i] + sommes;
         }
         return sommes;
+        // Pas compris et les autres ont fait une multiplication
 
     }
 
