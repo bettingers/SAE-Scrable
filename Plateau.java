@@ -20,11 +20,17 @@ public class Plateau {
 
     }
 
+    public Plateau (Case[][] plateau) {
+   this.g = plateau;
+   }
+
+
     /**
      * résultat : chaîne décrivant ce Plateau
      */
 
     // public String toString() {
+        
     // }
 
     // permet d'afficher la grille avec les num qui correspond au code couleur
@@ -33,7 +39,8 @@ public class Plateau {
     // Indique les indices des lignes mais pas des colonnes.
     // il manque à mettre les indices des colonnes, mettre
     // la lettre majuscule quana la lettre est recouverte
-    public static void affichage(int[][] mat) {
+    public String toString() {
+        int [][] mat = new int[15][15];
         for (int i = 0; i < 15; i++) {
             if (i < 9) {
                 Ut.afficher(" " + "0" + (i + 1) + "  :  ");
@@ -70,14 +77,28 @@ public class Plateau {
      * des jetons de e est valide.
      */
 
-    /*
-     * public boolean placementValide(String mot, int numLig, int numCol,char sens,
-     * MEE e) {
-     * boolean res = true;
-     * if (mot == ){
-     * }
-     * }
-     */
+    
+     public boolean placementValide(String mot, int numLig, int numCol,char sens, MEE e) {
+         if(g[7][7].estRecouverte()==true){
+             if(sens='h'){
+                 if(numCol + mot.length()-1<=14){
+
+                 }
+             }
+         }
+
+         else{
+             if(mot.length()>=2 && mot.length()<=7 && sens='h'){
+                 numLig=7 
+
+             }
+         }
+         
+
+      
+      }
+      }
+    
 
     // Méthode de comptabilité des points
 
@@ -102,6 +123,9 @@ public class Plateau {
     // public int place(String mot, int numLig, int numCol, char sens, MEE e){}
 
     public static void main(String[] args) {
+        int [][] mat = new Plateau (plateau [15][15]);
+
+        affichage(plateau);
 
         // prblème avec int[][] plateau;
     }

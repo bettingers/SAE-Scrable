@@ -1,7 +1,7 @@
 public class Case {
     private int couleur;
     private char lettre;
-    private boolean recouvert; // pour la question estRecouvert mais pas sûr
+    
 
     /**
      * pré-requis : uneCouleur est un entier entre 1 et 5
@@ -9,8 +9,8 @@ public class Case {
      */
     public Case(int uneCouleur) {
         this.couleur = uneCouleur;
-        // est ce qu'il faut mettre this.lettre = ... ici ?
-        // est ce qu'il faut rajouter recouvert
+        this.lettre='0';
+        
     }
 
     /**
@@ -40,11 +40,11 @@ public class Case {
      */
     public boolean estRecouverte() {
         boolean res = false;
-        // if(this.lettre == ... && this.recouvert == true ){
-        // res = true;
-        // }
+        if(this.lettre!='0'){
+            res = true;
+        }
         return res;
-        // Un truc comme ca mais faut revoir
+        
 
     }
 
