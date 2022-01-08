@@ -18,7 +18,13 @@ public class Plateau {
                 { 1, 4, 1, 1, 1, 3, 1, 1, 1, 3, 1, 1, 1, 4, 1 },
                 { 5, 1, 1, 2, 1, 1, 1, 5, 1, 1, 1, 2, 1, 1, 5 } };
 
+        for (int i = 0; i < plateau.length; i++) {
+            for (int j = 0; j < plateau[0].length; j++) {
+                this.g[i][j] = new Case(plateau[i][j]);
+            }
+        }
     }
+
 
     public Plateau (Case[][] plateau) {
    this.g = plateau;
@@ -39,29 +45,34 @@ public class Plateau {
     // Indique les indices des lignes mais pas des colonnes.
     // il manque à mettre les indices des colonnes, mettre
     // la lettre majuscule quana la lettre est recouverte
-    public String toString() {
-        int [][] mat = new int[15][15];
-        for (int i = 0; i < 15; i++) {
-            if (i < 9) {
-                Ut.afficher(" " + "0" + (i + 1) + "  :  ");
-            } else {
+    
+    public String toString(){
+        String ligne = "  01 02 03 04 05 06 07 08 09 10 11 12 13 14 15";
+        String colonne = "\n";
+        for(int i=0 ; i<g.length; i++){
+            for(int j=0; j<g[0].length; j++){
+                if(g[i][j].getCouleur()==1){
+                    colonne += "_|";
 
-                Ut.afficher(" " + (i + 1) + "  :  ");
-            }
-
-            for (int j = 0; j < 15; j++) {
-
-                if (mat[i][j] != 1) {
-                    Ut.afficher(mat[i][j] + "_|");
-                    // Ut.afficher(mat);
-                } else {
-                    Ut.afficher(" " + "_|");
                 }
+                else{
+                    colonne += g[i][j].getCouleur() + "_|";
+
+                }
+
             }
-            System.out.println("");
 
         }
+        if (i<10){
+            colonne = " " + colonne + "0" + i + "\n";
+        }
+        else{
+            colonne = " " + colonne + " " + i + "\n";
+
+        }
+        return ligne + colonne;
     }
+      
 
     // Autres méthodes permettant de placer un mot proposé pat un joueur.
     // le mot est un String

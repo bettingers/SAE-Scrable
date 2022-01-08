@@ -1,6 +1,6 @@
 public class Joueur {
     private String nom;
-    private MEE checalet;
+    private MEE chevalet;
     private int score;
 
     // Un constructeur
