@@ -177,21 +177,29 @@ public class Ut {
 		return (char) (i + 97);
 	}
 
-	// public static boolean estUneMajuscule(char c ){
+	
 	// return true if la lettre est une majuscule
-	//
+	public static boolean estUneMajuscule(char c ){
+		boolean res= false;
+		if(alphaToIndex(c) < -7 && alphaToIndex(c) > -32){
+			res = true;
+		}
+		return res;
 
-	// }
+	}
 
-	// public static int majToIndex(char c) {
+	
 	// retourne la valeur de l'index par rapport à sa lettre (pour la lettre 'A'
 	// cela renvois 0)
+	public static int majToIndex(char c) {
+		return (int) c - 65;
+	}
 
-	// }
-
-	// public static int indexToMaj(){
+	
 	// retourne la lettre correspondant à la valeur de l'index (pour 0 renvois 'A')
-	// }
+	public static int indexToMaj(int i){
+		return (char) (i+65);
+	}
 
 	/**
 	 * @param a entier
